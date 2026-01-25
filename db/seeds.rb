@@ -17,12 +17,12 @@ users = []
 end
 
 users.each do |user|
-  rand(2..5).times do
+  rand(0..5).times do
     post = user.posts.create!(
       title: Faker::Lorem.sentence
     )
 
-    rand(3..7).times do
+    rand(0..7).times do
       post.comments.create!(
         body: Faker::Lorem.paragraph
       )
