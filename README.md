@@ -13,10 +13,14 @@ ActiveRecord is often learned by memorizing methods, not by understanding SQL be
 - Progressive query exercises
 
 ## Setup
+```bash
 ruby scripts/setup.rb
+```
 
 ## Start the console
+```bash
 ruby playground.rb
+```
 
 ## Exercises
 Exercises are organized by difficulty:
@@ -30,4 +34,6 @@ Exercises are organized by difficulty:
 Open a level file and run queries in the console.
 
 ## Reset data
+```bash
 ruby scripts/reset_db.rb
+```
