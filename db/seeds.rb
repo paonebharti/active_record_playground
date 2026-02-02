@@ -3,18 +3,19 @@ require "faker"
 
 puts "🌱 Seeding data..."
 
-User.destroy_all
-Post.destroy_all
 Comment.destroy_all
+Post.destroy_all
+Order.destroy_all
+User.destroy_all
 
-users = []
-
-10.times do
-  users << User.create!(
-    name: Faker::Name.name,
-    email: Faker::Internet.unique.email
-  )
-end
+users = User.create!(
+  Array.new(10) do
+    {
+      name: Faker::Name.name,
+      email: Faker::Internet.unique.email
+    }
+  end
+)
 
 users.each do |user|
   rand(0..5).times do
@@ -27,6 +28,13 @@ users.each do |user|
         body: Faker::Lorem.paragraph
       )
     end
+  end
+
+  rand(0..3).times do
+    user.orders.create!(
+      total_amount: Faker::Commerce.price(range: 100..5000),
+      status: Order.statuses.keys.sample
+    )
   end
 end
 
